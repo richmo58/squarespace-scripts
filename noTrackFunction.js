@@ -1,4 +1,9 @@
-function setNoTrackCookie() {
-  document.cookie = "noTrackMe=true; max-age=31536000; path=/";
-  alert('Cookie has been set. You won't be tracked on this device.');
-}
+document.addEventListener("DOMContentLoaded", function() {
+    var links = document.querySelectorAll('a[href="#"]');
+    for(var i = 0; i < links.length; i++) {
+        links[i].addEventListener("click", function(e) {
+            e.preventDefault();
+            alert('No tracking information will be recorded. Thank you.');
+        });
+    }
+});
